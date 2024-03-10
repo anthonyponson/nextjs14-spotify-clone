@@ -5,8 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 import Box from './Box'
 import SidebarItem from './SidebarItem'
-
-
+import Library from './Library'
 
 interface SidebarProps {
   children: React.ReactNode
@@ -18,13 +17,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   const routes = useMemo(
     () => [
       {
-        icon: <HiHome />,
+        icon: HiHome,
         label: 'Home',
         active: pathname !== '/search',
         href: '/',
       },
       {
-        icon: <HiSearch />,
+        icon: HiSearch,
         label: 'Search',
         active: pathname === '/search',
         href: '/search',
@@ -43,8 +42,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             ))}
           </div>
         </Box>
-        <Box className='overflow-y-auto h-full'>music</Box>
+        <Box className='overflow-y-auto h-full'>
+          <Library />
+        </Box>
       </div>
+
+      <main className='h-full flex-1 overflow-y-auto py-2'>{children}</main>
     </div>
   )
 }
