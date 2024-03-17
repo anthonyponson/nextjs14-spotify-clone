@@ -1,6 +1,9 @@
 import Header from '@/components/Header'
 import ListItem from '@/components/ListItem'
 import Image from 'next/image'
+import { cookies } from 'next/headers'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createBrowserClient, createServerClient } from '@supabase/ssr'
 
 export default function Home() {
   return (
